@@ -42,5 +42,12 @@ namespace online_retail.Repositories.Implementation
 
             return true;
         }
+        public async Task<Product> UpdateProductById(Product product)
+        {
+            _dbContext.Products.Update(product);
+            await _dbContext.SaveChangesAsync();
+
+            return product;
+        }
     }
 }

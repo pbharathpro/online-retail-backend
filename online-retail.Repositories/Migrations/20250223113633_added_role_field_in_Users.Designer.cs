@@ -12,8 +12,8 @@ using online_retail.Repositories;
 namespace online_retail.Repositories.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250214062637_dbinit4")]
-    partial class dbinit4
+    [Migration("20250223113633_added_role_field_in_Users")]
+    partial class added_role_field_in_Users
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,10 +39,6 @@ namespace online_retail.Repositories.Migrations
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -92,6 +88,10 @@ namespace online_retail.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

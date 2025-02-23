@@ -44,5 +44,16 @@ namespace online_retail.Controllers
 
             return Ok(new { message = "Product deleted successfully" });
         }
+        [HttpPut("updateProductById/{{id}}")]
+        public async Task<IActionResult> UpdateProductById(Guid id, [FromBody] ProductModel updatedProduct)
+        {
+            if (updatedProduct == null)
+            {
+                return BadRequest("User data is required.");
+            }
+
+             ProductModel product = await _productservices.UpdateProductById(id, updatedProduct);
+            return Ok(product);
+        }
     }
 }

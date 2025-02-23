@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using online_retail.Models.ViewModels;
 using online_retail.Repositories.Entities;
+using online_retail.Repositories.Implementation;
 using online_retail.Repositories.Interface;
 using online_retail.Services.Interface;
 
@@ -32,6 +33,10 @@ namespace online_retail.Services.Implementation
             UserModel userModel= _mapper.Map<UserModel>(users);
 
             return userModel;
+        }
+        public async Task<User> ValidateUser(string email, string password)
+        {
+            return await _userRepo.GetUserByEmailAndPassword(email, password);
         }
         public async Task<bool> DeleteUserById(Guid userId)
         {
@@ -60,5 +65,6 @@ namespace online_retail.Services.Implementation
 
             return _mapper.Map<UserModel>(updatedUser);
         }
+       
     }
 }

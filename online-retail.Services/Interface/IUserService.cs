@@ -15,5 +15,6 @@ namespace online_retail.Services.Interface
         Task<UserModel> CreateUser(UserModel userModel);
         Task<bool> DeleteUserById(Guid userId);
         Task<UserModel> UpdateUserById(Guid userId,UserModel userModel);
+        Task<User> ValidateUser(string username, string password);
     }
 }

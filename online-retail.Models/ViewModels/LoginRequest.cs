@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace online_retail.Models.ViewModels
 {
-    public class UserModel
+    public class LoginRequest
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public string Email { get; set; }  // Change Username to Email
         public string Password { get; set; }
-        public string Role { get; set; }
     }
 }

@@ -5,13 +5,13 @@
 namespace online_retail.Repositories.Migrations
 {
     /// <inheritdoc />
-    public partial class dbinit2 : Migration
+    public partial class added_role_field_in_Users : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Password",
+                name: "Role",
                 table: "Users",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -22,7 +22,7 @@ namespace online_retail.Repositories.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Password",
+                name: "Role",
                 table: "Users");
         }
     }

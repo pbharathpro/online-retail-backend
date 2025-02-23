@@ -45,5 +45,22 @@ namespace online_retail.Services.Implementation
         {
             return await _productRepo.DeleteProductById(productId);
         }
+        public async Task<ProductModel> UpdateProductById(Guid productId, ProductModel productModel)
+        {
+            Product existingProduct = await _productRepo.GetProductById(productId);
+
+            if (existingProduct == null)
+            {
+                return null;
+            }
+
+            existingProduct.Name = productModel.Name;
+            existingProduct.Description = productModel.Description;
+            existingProduct.Quantity = productModel.Quantity;
+            existingProduct.Price = productModel.Price;
+            Product Product = await _productRepo.UpdateProductById(existingProduct);
+
+            return _mapper.Map<ProductModel>(Product);
+        }
     }
 }

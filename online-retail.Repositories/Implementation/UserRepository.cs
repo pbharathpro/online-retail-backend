@@ -25,6 +25,11 @@ namespace online_retail.Repositories.Implementation
         {
             return await _dbContext.Users.FirstOrDefaultAsync(user=>user.Id==userId);
         }
+        public async Task<User> GetUserByEmailAndPassword(string email, string password)
+        {
+            return await _dbContext.Users.SingleOrDefaultAsync(u => u.Email == email && u.Password == password);
+        }
+
         public async Task<User> CreateUser(User user)
         {
             await _dbContext.Users.AddAsync(user);

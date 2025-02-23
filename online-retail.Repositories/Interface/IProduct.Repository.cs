@@ -13,6 +13,7 @@ namespace online_retail.Repositories.Interface
         Task<Product> CreateProduct(Product product);
         Task<Product> GetProductById(Guid productId);
         Task<bool> DeleteProductById(Guid userId);
+        Task<Product> UpdateProductById(Product product);
 
     }
 }
